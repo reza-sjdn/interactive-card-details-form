@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <!-- The back side of the card -->
+      <div class="card-back">
+        <span id="oncard-cvc">000</span>
+      </div>
+
+      <!-- The front side of the card -->
+      <div class="card-front">
+        <span class="card-logo"></span>
+        <span id="oncard-card-number">0000 0000 0000 0000</span>
+        <span id="oncard-holder-name">***** *********</span>
+        <span id="oncard-exp-date">00/00</span>
+      </div>
+    </header>
+
+
+    <!-- FORM -->
+    <!-- The paragraphs with class .message-box
+         are containers for error messages -->
+    <form class="form" id="form">
+
+      <!-- Input field for getting card holder name -->
+      <div class="holder-name">
+        <label for="holder-name-field">CARDHOLDER NAME</label>
+        <input type="text" id="holder-name-field" placeholder="e.g. Jane Appleseed">
+        <p class="message-box"></p>
+      </div>
+
+      <!-- Input field for getting card number -->
+      <div class="card-number">
+        <label for="card-number-field">CARD NUMBER</label>
+        <input type="text" id="card-number-field" maxlength="25"
+               placeholder="e.g. 1234 5678 9123 0000">
+        <p class="message-box"></p>
+      </div>
+
+      <!-- Input field for getting the expiration date
+           of card(both month and year) -->
+      <div class="two-col-flex">
+        <div class="exp-date">
+          <label for="month-field">EXP. DATE (MM/YY)</label>
+          <div class="two-col-flex">
+            <input type="text" id="month-field" maxlength="2"
+                   placeholder="MM">      
+            <input type="text" id="year-field" maxlength="2"
+                   placeholder="YY">
+          </div>
+          <p class="message-box"></p>
+        </div>
+  
+      <!-- Input field for getting CVC code -->
+        <div class="cvc">
+          <label for="cvc-field">CVC</label>
+          <input type="text" id="cvc-field" maxlength="4"
+                 placeholder="e.g. 123">
+          <p class="message-box"></p>
+        </div>
+      </div>
+
+      <!-- Main button -->
+      <button type="button" id="confirm-btn">Confirm</button>
+    </form>
+
+
+    <!-- Success Message -->
+    <!-- If the user enters all the data correctly
+         and clicks the confirm button, some success
+         message showes up -->
+    <section id="success-message">
+      <div class="success-icon-box">
+        <span class="success-icon"></span>
+      </div>
+      <h1>THANK YOU!</h1>
+      <p>We've added your card details</p>
+      <button type="submit" id="continue-btn">Continue</button>
+    </section>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

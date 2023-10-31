@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+:root {
+    /* linear gradient for active input border */
+    --gradient-first: hsl(249, 99%, 64%);
+    --gradient-second: hsl(278, 94%, 30%);
+
+    /* input errors */
+    --red-error: hsl(0, 100%, 66%);
+    
+    /* neutrals */
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+
+    /* base font size */
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    padding-bottom: 50px;
+}
+
+.header {
+    background-image: url('./images/bg-main-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 240px;
+    position: relative;
+    color: var(--white);
+    box-shadow: 0 50px 50px var(--light-grayish-violet);
+}
+
+.header .card-back {
+    width: 280px;
+    height: 150px;
+    background-image: url('./images/bg-card-back.png');
+    background-size: cover;
+    position: absolute;
+    left: 75px;
+    top: 30px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.header .card-back #oncard-cvc {
+    position: absolute;
+    top: 75px;
+    transform: translate(0, -50%);
+    right: 35px;
+    font-size: .6rem;
+    letter-spacing: 1px;
+}
+
+.header .card-front {
+    width: 280px;
+    height: 150px;
+    background-image: url('./images/bg-card-front.png');
+    background-size: cover;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    border-radius: 6px;
+}
+
+.header .card-front span {
+    position: absolute;
+}
+
+.header .card-front .card-logo {
+    background-image: url('./images/card-logo.svg');
+    background-size: cover;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    top: 20px;
+    left: 20px;
+}
+
+.header .card-front #oncard-card-number {
+    left: 20px;
+    top: 80px;
+    display: inline-block;
+    width: 240px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.header .card-front #oncard-holder-name {
+    left: 20px;
+    bottom: 20px;
+    font-size: .5rem;
+    color: var(--light-grayish-violet);
+    opacity: .9;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.header .card-front #oncard-exp-date {
+    right: 20px;
+    bottom: 20px;
+    font-size: .5rem;
+    color: var(--light-grayish-violet);
+    opacity: .9;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+
+.form {
+    width: 90%;
+    margin: auto;
+}
+
+.form .holder-name,
+.form .card-number,
+.form .exp-date,
+.form .cvc {margin-bottom: 15px;}
+
+.form input {
+    font-family: 'Space Grotesk', sans-serif;
+    display: block;
+    padding: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    border: 1px solid var(--light-grayish-violet);
+    font-size: .8rem;
+    border-radius: 8px;
+    caret-color: var(--very-dark-violet);
+    outline: none;
+    color: var(--very-dark-violet);
+}
+
+.form input::placeholder {
+    color: rgb(158, 157, 157);
+}
+
+.form input:hover,
+#confirm-btn:hover {
+    cursor: pointer;
+}
+
+.form label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: .9;
+}
+
+.form .holder-name #holder-name-field {
+    width: 100%;
+}
+
+.form .card-number #card-number-field {
+    width: 100%;
+}
+
+.two-col-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.form .exp-date {
+    flex: 1;
+}
+
+.form .exp-date #month-field,
+.form .exp-date #year-field {
+    width: 50px;
+    flex: 1;
+}
+
+.form .cvc {
+    flex: 1;
+}
+
+.form .cvc #cvc-field {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--very-dark-violet);
+    color: var(--light-grayish-violet);
+    margin-top: 20px;
+    transition: all .2s;
+    box-shadow: 0 4px 10px var(--light-grayish-violet);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+button:hover {
+    background-color: hsl(278, 79%, 17%);
+}
+
+.message-box {
+    font-size: .5rem;
+    color: var(--red-error);
+}
+
+/* When a user wants to enter some data to input fields */
+.input-focus-in {
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(var(--gradient-first), var(--gradient-second)) border-box;
+    border-color: transparent !important;
+    border-radius: 8px !important;
+}
+
+/* When the input fields are empty of are inserted with wrong data */
+.input-error {border-color: var(--red-error) !important;}
+
+
+
+/* Success Message */
+#success-message {
+    display: none;
+    width: 90%;
+    margin: auto;
+}
+
+#success-message .success-icon-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#success-message .success-icon-box .success-icon {
+    background-image: url('./images/icon-complete.svg');
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+#success-message h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: var(--very-dark-violet);
+}
+
+#success-message p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--dark-grayish-violet);
+}
+
+
+
+@media (min-width: 1100px) {
+    .container {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .header {
+        height: 100vh;
+        box-shadow: 50px 0 50px var(--light-grayish-violet);
+    }
+
+    .header .card-back {
+        width: 400px;
+        height: 220px;
+        top: 350px;
+        left: 50%;
+    }
+
+    .header .card-back #oncard-cvc {
+        top: 108px;
+        right: 40px;
+        letter-spacing: 2px;
+        font-size: .7rem;
+        font-weight: 600;
+    }
+
+    .header .card-front {
+        width: 400px;
+        height: 220px;
+        top: 100px;
+        left: 30%;
+    }
+
+    .header .card-front .card-logo {
+        left: 25px;
+        top: 25px;
+        width: 75px;
+        height: 42px;
+    }
+
+    .header .card-front #oncard-card-number {
+        left: 25px;
+        top: 120px;
+        width: 350px;
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+    }
+
+    .header .card-front #oncard-holder-name {
+        left: 25px;
+        bottom: 25px;
+        font-size: .6rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .header .card-front #oncard-exp-date {
+        right: 25px;
+        bottom: 25px;
+        font-size: .6rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .form {
+        width: 400px;
+    }
+
+    .form input {font-size: .9rem;}
+
+    .form label {margin-bottom: 10px;}
+
+    .message-box {
+        font-size: .6rem;
+        color: var(--red-error);
+    }
+
+    #success-message {
+        width: 400px;
+    }
+}
+
+
